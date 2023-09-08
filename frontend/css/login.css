@@ -1,0 +1,26 @@
+h1{
+    
+    color: #430C8B; 
+    font-size: 35px; 
+    text-align: center;
+}
+
+.login-body{
+    padding: 10% 0;
+    margin: auto;
+    width: 25%;
+    font-size: 22px;
+}
+
+input{
+    border-color: black 0.5px;
+    background-color: rgb(223, 221, 217);
+    width: 200px;
+    height: 30px;
+    float: right;
+    border-radius: 2px
+}
+
+button{
+    margin: 5% 20%;
+}
