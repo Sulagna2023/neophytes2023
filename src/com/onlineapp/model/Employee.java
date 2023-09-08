@@ -1,52 +1,43 @@
 package com.onlineapp.model;
 
-import java.util.Objects;
-
 public class Employee {
-
-	private int employee_id;
-	private String user_name;
-	private String password;
-
-	public Employee(int employee_id, String user_name, String password) {
-		super();
-		this.employee_id = employee_id;
-		this.user_name = user_name;
-		this.password = password;
+	
+	private int employeeId;
+	private String userName;
+	private String passWord;
+	
+	public Employee(){
 	}
 
-	public int getEmployee_id() {
-		return employee_id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public String getUser_name() {
-		return user_name;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getUserName() {
+		return userName;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(employee_id, password, user_name);
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		return employee_id == other.employee_id;
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [employee_id=" + employee_id + ", user_name=" + user_name + ", password=" + password + "]";
+		return "Employee [employeeId=" + employeeId + ", userName=" + userName + ", passWord=" + passWord + "]";
 	}
+	
+	
 
 }
