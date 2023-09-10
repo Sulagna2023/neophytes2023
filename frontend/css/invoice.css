@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  .navbar{
+    margin-top: -1%;
+}
+
+  .invoice {
+    max-width: 800px;
+    height: max-content;
+    margin: 0 auto;
+    padding: 20px;
+    background: #eeeded;
+    border: 1px solid #2B329D;
+    border-bottom: 6px solid #2B329D;
+    border-top: 6px solid #2B329D;
+    overflow-y: auto;
+    /* margin-top: 20%; */
+  }
+  .invoice-header {
+    float: right;
+  }
+  .invoice-body {
+    margin-top: 20px;
+  }
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  .invoice-table th,
+  .invoice-table td {
+    border: 1px solid #2B329D;
+    padding: 8px;
+  }
+  .invoice-table th {
+    background: #2B329D;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  .invoice-total {
+    margin-top: 20px;
+    float: right;
+    text-align: left;
+  }
