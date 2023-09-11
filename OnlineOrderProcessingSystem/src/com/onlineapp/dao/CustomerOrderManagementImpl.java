@@ -124,7 +124,7 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 				closeConnection(con);
 			}
 		}
-	}
+	}S
 
 	@Override
 	public void showOrders(int customerId) {
@@ -143,6 +143,12 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 			}
 		}
 
+	}
+
+	@Override
+	public void showOrders() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

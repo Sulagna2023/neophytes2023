@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import com.onlineapp.interfaces.EmployeeOrderManagement;
 import com.onlineapp.model.Employee;
 import com.onlineapp.model.Invoice;
+import com.onlineapp.model.Products;
 import com.onlineapp.model.Quote;
 
 public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
@@ -124,8 +126,30 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 	}
 
 	@Override
-	public void importProducts() {
-
+	public void importProducts(Set<Products> productList) 
+	{
+		Connection con = getConnection();
+		if (con != null)
+		{
+			for(Products p:productList)
+			{
+				try(PreparedStatement ps=con.prepareStatement("insert into product values(?,?,?,?)"))
+				{
+					ps.setInt(1, p.getProductsId());
+					ps.setString(2, p.getProductName());
+					ps.setDouble(3, p.getProductPrice());
+					ps.setString(4, p.getProductCategory());
+					ps.executeUpdate();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+				closeConnection(con);
+	
+		}
 	}
 
 }
