@@ -1,0 +1,20 @@
+
+/* Style for the rectangular box */
+.rectangular-box {
+    width: 350px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    background-color: #f8f7f7; /* Background color */
+    border: 2px solid #000000; /* Border style */
+    border-radius: 0px; /* Rounded corners */
+    margin: 10px auto; /* Center the box horizontally with some top margin */
+    text-align: center; /* Center text horizontally */
+    color: #000000; /* Text color */
+    font-size: 18px; /* Text font size */
+    font-weight: bold;
+    line-height: 70px; /* Center text vertically */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}

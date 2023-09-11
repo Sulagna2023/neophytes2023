@@ -24,17 +24,17 @@
   <div class="main-body">
     <script src="../js/script.js"></script>
       <div class="upper">
-        <button type="button" class="upper-button">
+        <button type="button" class="upper-button" onclick="showPending()">
           <i class="fa-solid fa-clock" style="color: #ffffff; margin-right: 10px;"></i>Pending
        </button>
-       <button type="button" class="upper-button">
+       <button type="button" class="upper-button" onclick="showComplete()">
         <i class="fa-solid fa-calendar-check" style="color: #ffffff; margin-right: 10px;"></i>Completed
        </button>
       </div>
 
       <!--CARDS-->
       <!--CARD1-->
-      <div class="card mb-3" style="max-width: 70%;">
+      <div id="pendingCards" class="card mb-3" style="max-width: 70%;">
           <div class="row g-0">
             <div class="col-md-4">
               <img src="../images/cardimg.jpg" class="img-fluid rounded-start" alt="...">
@@ -56,6 +56,7 @@
         </div>
 
          <!--CARD2-->
+         <div id="completeCards" style="display:none;">
         <div class="card mb-3" style="max-width: 70%;">
           <div class="row g-0">
             <div class="col-md-4">
@@ -98,7 +99,7 @@
             </div>
           </div>
         </div>
-
+      </div>
   </div>
 
   <!--FOOTER-->
