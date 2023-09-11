@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang = "en" dir = "ltr">
+    <head>
+        <meta charset = "UTF-8">
+        <title> </title>
+        <link rel = "stylesheet" href = "style.css">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="navbar">
+            <!-- NAVBAR -->
+            <ul>
+                <li><a href="employeeLogin.html">Employee Login</a></li>
+                <li><a href="customerLogin.html">Customer Login</a></li>
+            </ul>
+        </div>
+        <div class = "container">
+            <div class = "title"> </div>
+            <form action = "#" id="detailsForm" >
+                <div class = "user-details">
+                    <div class = "input-box">
+                        <span class = "details"> Customer Name/ID </span>
+                        <input type="text" id="name" placeholder = "Enter customer name/id" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Email </span>
+                        <input type="text" id="email" placeholder = "Enter email id" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Phone Number </span>
+                        <input type="text" id="phno" placeholder = "Enter ph.no" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> GST Number </span>
+                        <input type="text" id="gstno" placeholder = "Enter gst number" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Order Date </span>
+                        <input type="text" id="orderdate" placeholder = "Enter order date" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Shipping Address </span>
+                        <input type="text" id="shippingaddress" placeholder = "Enter shipping address" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> City </span>
+                        <input type="text" id="city" placeholder = "Enter city" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Pincode </span>
+                        <input type="text" id="pincode" placeholder = "Enter pincode" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Shipping Cost </span>
+                        <input type="text" id="cost" placeholder = "Enter shipping cost" required>
+                    </div>
+                    <div class = "input-box">
+                        <span class = "details"> Total Order Value </span>
+                        <input type="text" id="totalvalue" placeholder = "Enter total order value" required>
+                    </div>
+                    <div class = "button">
+                        <input onClick="dummy.html" type="submit" value="Create">
+                    </div>
+                </div>
+            </form>
+
+            <div id="displayArea">
+                <!-- Display details here -->
+            </div>
+        </div>
+
+        <script>
+            // Get references to form elements and the display area
+            const form = document.getElementById("detailsForm");
+            const displayArea = document.getElementById("displayArea");
+    
+            // Add a submit event listener to the form
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+    
+                // Get input values from the form
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const phoneNo = document.getElementById("phno").value;
+                const gstno = document.getElementById("gstno").value;
+                const orderdate = document.getElementById("orderdate").value;
+                const shippingaddress = document.getElementById("shippingaddress").value;
+                const city = document.getElementById("city").value;
+                const pincode = document.getElementById("pincode").value;
+                const cost = document.getElementById("cost").value;
+                const totalvalue = document.getElementById("totalvalue").value;
+    
+                // Display the details in the display area
+                displayArea.innerHTML = `Customer Name/ID: ${name}<br> Email: ${email} <br> Phone Number: ${phno} <br> 
+                GST Number: ${gstno} <br> Order Date: ${orderdate} <br> Shipping Address: ${shippingaddress} <br>
+                City: ${city} <br> Pincode: ${pincode} <br> Shipping Cost: ${cost} <br> Total Order Value: ${totalvalue}`;
+            });
+        </script>
+    </body>
+</html>
