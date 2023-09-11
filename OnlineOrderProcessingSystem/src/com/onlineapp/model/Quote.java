@@ -48,8 +48,7 @@ public class Quote {
 
 	@Override
 	public String toString() {
-		return "Quote [orderDate=" + orderDate + ", customer=" + customer + ", shippingCost=" + shippingCost
-				+ ", productList=" + productList + ", totalOrderValue=" + totalOrderValue + "]";
+		return "Quote [orderDate=" + orderDate + ", customer=" + customer + ", productList=" + productList + "]";
 	}
 	
 	

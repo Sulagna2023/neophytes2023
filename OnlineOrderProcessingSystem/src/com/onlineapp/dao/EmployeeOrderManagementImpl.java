@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.onlineapp.interfaces.EmployeeOrderManagement;
+import com.onlineapp.model.Customer;
 import com.onlineapp.model.Employee;
 import com.onlineapp.model.Invoice;
 import com.onlineapp.model.Products;
@@ -85,37 +88,36 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 	}
 
 	@Override
-	public void createNewQuote(LocalDateTime orderDate, int customerId) {
-		
-		Connection con=getConnection();
-		if(con!=null)
-		{
-			try(PreparedStatement ps=con.prepareStatement("select * from customer where customer_id=?"))
-			{
-				ps.setInt(1, customerId);
-				ResultSet rs=ps.executeQuery();
-				while(rs.next()) {
-					Quote quote = new Quote();
-				}
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				closeConnection(con);
-			}
-		}
-	}
-
-	@Override
 	public void createNewQuote(LocalDateTime orderDate, String customerName) {
 
+		//return type must be quote
+		
 		Connection con = getConnection();
 		if (con != null) {
 			try (PreparedStatement ps = con.prepareStatement("select * from customer where customer_name=?")) {
 				ps.setString(2, customerName);
 				ResultSet rs = ps.executeQuery();
+				
+				int customerId = rs.getInt(1);
+				String customer_name = rs.getString(2);
+				long gstNumber = rs.getInt(3);
+				String customerAddress = rs.getString(4);
+				String customerCity = rs.getString(5);
+				String customerEmail = rs.getString(6);
+				long customerPhone = rs.getLong(7);
+				int pinCode = rs.getInt(8);
+				
+				
+				Customer customer = new Customer(customerId, customer_name, gstNumber, customerAddress, customerCity, customerEmail, customerPhone, pincode);
+				
+				//query to get totalOrderValue and productList so that we can pass it to calculateShippingCost()
+				
+				EmployeeOrderManagementImpl obj = new EmployeeOrderManagementImpl();
+				
+				double shippingCost = obj.calculateShippingCost(totalOrderValue, productList);
+				
 				while (rs.next()) {
-					Quote quote = new Quote();
+					Quote quote = new Quote(orderDate, customer, shippingCost, productList, totalOrderValue);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -126,30 +128,50 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 	}
 
 	@Override
-	public void importProducts(Set<Products> productList) 
-	{
+	public void importProducts(Set<Products> productList) {
 		Connection con = getConnection();
-		if (con != null)
-		{
-			for(Products p:productList)
-			{
-				try(PreparedStatement ps=con.prepareStatement("insert into product values(?,?,?,?)"))
-				{
+		if (con != null) {
+			for (Products p : productList) {
+				try (PreparedStatement ps = con.prepareStatement("insert into product values(?,?,?,?)")) {
 					ps.setInt(1, p.getProductsId());
 					ps.setString(2, p.getProductName());
 					ps.setDouble(3, p.getProductPrice());
 					ps.setString(4, p.getProductCategory());
 					ps.executeUpdate();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
-				
 			}
-				closeConnection(con);
-	
+			closeConnection(con);
+
 		}
+	}
+	
+	public double calculateShippingCost(double totalOrderValue, List<Products> productList) {
+		
+		double shippingCost = 0;
+		
+		if(totalOrderValue > 100000)
+			return 0;
+		
+		else if(totalOrderValue <= 100000) {
+			Iterator<Products> itr = productList.iterator();
+			
+			while(itr.hasNext()) {
+				
+				if(itr.next().getProductCategory() == "Level1")
+					shippingCost += 0.5 * totalOrderValue;
+				
+				if(itr.next().getProductCategory() == "Level2")
+					shippingCost += 0.3 * totalOrderValue;
+				
+				if(itr.next().getProductCategory() == "Level3")
+					shippingCost +=  0.2 * totalOrderValue;
+			}
+		}
+		
+		return shippingCost;
+		
 	}
 
 }

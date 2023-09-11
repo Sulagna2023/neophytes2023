@@ -7,10 +7,11 @@ public class Order {
 
 	private int orderId;
 	private LocalDateTime orderDate;
-	private Customer customerDetails;
+//	private Customer customerDetails;
+	private int customerId;
 	private List<Products> productList;
 	private double totalOrderValue;
-	private double shippingCost;
+//	private double shippingCost;
 	private String shippingAgency;
 	private Invoice invoice;
 	private enum Status{
@@ -22,6 +23,7 @@ public class Order {
 	
 	
 	public Order(){
+		super();
 	}
 
 
@@ -45,14 +47,14 @@ public class Order {
 	}
 
 
-	public Customer getCustomer() {
-		return customerDetails;
-	}
-
-
-	public void setCustomer(Customer customer) {
-		this.customerDetails = customer;
-	}
+//	public Customer getCustomer() {
+//		return customerDetails;
+//	}
+//
+//
+//	public void setCustomer(Customer customer) {
+//		this.customerDetails = customer;
+//	}
 
 
 	public List<Products> getProductList() {
@@ -75,14 +77,14 @@ public class Order {
 	}
 
 
-	public double getShippingCost() {
-		return shippingCost;
-	}
-
-
-	public void setShippingCost(double shippingCost) {
-		this.shippingCost = shippingCost;
-	}
+//	public double getShippingCost() {
+//		return shippingCost;
+//	}
+//
+//
+//	public void setShippingCost(double shippingCost) {
+//		this.shippingCost = shippingCost;
+//	}
 
 
 	public String getShippingAgency() {
@@ -97,9 +99,8 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", customer=" + customerDetails + ", productList="
-				+ productList + ", totalOrderValue=" + totalOrderValue + ", shippingCost=" + shippingCost
-				+ ", shippingAgency=" + shippingAgency + "]";
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", productList="
+				+ productList + ", totalOrderValue=" + totalOrderValue + ", shippingAgency=" + shippingAgency + "]";
 	}
 	
 	

@@ -4,9 +4,9 @@ import com.onlineapp.model.Customer;
 
 public interface CustomerOrderManagement extends OrderManagement {
 	
-	Customer customerLogin(int customerId, String password);
-	Customer customerLogin(String customerName, String password);
-	void showQuotes();
-	void showOrders();
+	public Customer customerLogin(int customerId, String password);
+	public Customer customerLogin(String customerName, String password);
+	public void showProducts();
+	public void showOrders(int customerId);
 
 }

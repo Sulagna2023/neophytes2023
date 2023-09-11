@@ -7,7 +7,7 @@ public class Customer {
 	private long gstNumber;
 	private String customerAddress;
 	private String customerCity;
-	private String cutomerEmail;
+	private String customerEmail;
 	private long customerPhone;
 	private int pinCode;
 	
@@ -15,14 +15,14 @@ public class Customer {
 	}	
 	
 	public Customer(int customerId, String customerName, long gstNumber, String customerAddress, String customerCity,
-			String cutomerEmail, long customerPhone, int pinCode) {
+			String customerEmail, long customerPhone, int pinCode) {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
 		this.gstNumber = gstNumber;
 		this.customerAddress = customerAddress;
 		this.customerCity = customerCity;
-		this.cutomerEmail = cutomerEmail;
+		this.customerEmail = customerEmail;
 		this.customerPhone = customerPhone;
 		this.pinCode = pinCode;
 	}
@@ -57,11 +57,11 @@ public class Customer {
 	public void setCustomerCity(String customerCity) {
 		this.customerCity = customerCity;
 	}
-	public String getCutomerEmail() {
-		return cutomerEmail;
+	public String getCustomerEmail() {
+		return customerEmail;
 	}
-	public void setCutomerEmail(String cutomerEmail) {
-		this.cutomerEmail = cutomerEmail;
+	public void setCustomerEmail(String cutomerEmail) {
+		this.customerEmail = cutomerEmail;
 	}
 	public long getCustomerPhone() {
 		return customerPhone;
@@ -79,8 +79,8 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customers [customerId=" + customerId + ", customerName=" + customerName + ", gstNumber=" + gstNumber
-				+ ", customerAddress=" + customerAddress + ", customerCity=" + customerCity + ", cutomerEmail="
-				+ cutomerEmail + ", customerPhone=" + customerPhone + ", pinCode=" + pinCode + "]";
+				+ ", customerAddress=" + customerAddress + ", customerCity=" + customerCity + ", customerEmail="
+				+ customerEmail + ", customerPhone=" + customerPhone + ", pinCode=" + pinCode + "]";
 	}
 	
 	

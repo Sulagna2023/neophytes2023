@@ -44,27 +44,6 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 	}
 
 	@Override
-	public Invoice showInvoice(int invoiceId) {
-		Connection con = getConnection();
-		if (con != null) {
-			try (PreparedStatement ps = con.prepareStatement("select * from invoice where invoiceId=?")) {
-				ps.setInt(1, invoiceId);
-				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
-					Invoice invoice = new Invoice();
-					return invoice;
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			finally {
-				closeConnection(con);
-			}
-		}
-		return null;
-	}
-
-	@Override
 	public Customer customerLogin(int customerId, String password) {
 		Connection con = getConnection();
 		if (con != null) {
@@ -110,7 +89,29 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 	}
 
 	@Override
-	public void showQuotes() {
+	public Invoice showInvoice(int invoiceId) {
+		Connection con = getConnection();
+		if (con != null) {
+			try (PreparedStatement ps = con.prepareStatement("select * from invoice where invoiceId=?")) {
+				ps.setInt(1, invoiceId);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					Invoice invoice = new Invoice();
+					return invoice;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				closeConnection(con);
+			}
+		}
+		return null;
+	}
+
+	
+	@Override
+	public void showProducts() {
 		Connection con = getConnection();
 		if (con != null) {
 			try (PreparedStatement ps = con
@@ -124,7 +125,7 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 				closeConnection(con);
 			}
 		}
-	}S
+	}
 
 	@Override
 	public void showOrders(int customerId) {
