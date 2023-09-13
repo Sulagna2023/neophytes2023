@@ -132,8 +132,9 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 		Connection con = getConnection();
 		if (con != null) {
 			try (PreparedStatement ps = con
-					.prepareStatement("select * from orders where customer_id = ?")) {
-				ps.setInt(3, customerId);
+					.prepareStatement("select * from orders where customer_id = ? and status = ?")) {
+				ps.setInt(1, customerId);
+				ps.setString(2, "APPROVED");
 				int count = ps.executeUpdate();
 				System.out.println("Displayed: " + count + " no of rows");
 			} catch (SQLException e) {
@@ -146,10 +147,10 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 
 	}
 
-	@Override
-	public void showOrders() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void showQuotes() {
+//		
+//		
+//	}
 
 }

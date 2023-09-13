@@ -14,6 +14,20 @@ public class Quote {
 	public Quote(){
 	}
 
+	
+	
+	public Quote(LocalDateTime orderDate, Customer customer, double shippingCost, List<Products> productList,
+			double totalOrderValue) {
+		super();
+		this.orderDate = orderDate;
+		this.customer = customer;
+		this.shippingCost = shippingCost;
+		this.productList = productList;
+		this.totalOrderValue = totalOrderValue;
+	}
+
+
+
 	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
