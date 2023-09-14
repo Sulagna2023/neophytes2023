@@ -72,8 +72,13 @@ button{
   border: none;
   border-radius: 2px;
   outline: none;
+}
+
+button:hover{
+  box-shadow: 2px 6px 17px 2px #bfc8f8;
+  /* # 5px; */
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .content{

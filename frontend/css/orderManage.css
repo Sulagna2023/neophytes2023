@@ -33,3 +33,12 @@
     border: 1px solid #ccc;
 }
 
+.footer-bottom {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0.3%;
+    width: 100%;
+    font-size: 17px;
+    color: grey;
+    text-align: center;
+  }
