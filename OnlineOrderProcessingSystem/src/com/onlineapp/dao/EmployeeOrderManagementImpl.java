@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.onlineapp.exception.EmployeeNotFoundException;
 import com.onlineapp.interfaces.EmployeeOrderManagement;
 import com.onlineapp.model.Customer;
 import com.onlineapp.model.Employee;
@@ -68,10 +69,10 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 	}
 
 	@Override
-	public Employee employeeLogin(int employeeId, String password) {
+	public Employee employeeLogin(int employeeId, String password) throws EmployeeNotFoundException {
 		Connection con = getConnection();
 		if (con != null) {
-			try (PreparedStatement ps = con.prepareStatement("select * from employee where employee_id=? && employee_password=?")) {
+			try (PreparedStatement ps = con.prepareStatement("select * from employee where employee_id=?,password=?")) {
 				ps.setInt(1, employeeId);
 				ps.setString(2, password);
 				ResultSet rs = ps.executeQuery();
@@ -79,17 +80,20 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 					Employee employee = new Employee();// need to fetch data from database and pass as parameter
 					return employee;
 				}
-			} catch (SQLException e) {
+			} catch (SQLException e) 
+			{
 				e.printStackTrace();
-			} finally {
+			} 
+			finally
+			{
 				closeConnection(con);
 			}
 		}
-		return null;
+		throw new EmployeeNotFoundException("Incorrect Employee Id or Password entered!");
 	}
 
 	@Override
-	public void createNewQuote(LocalDateTime orderDate, int customerId) {
+	public Quote createNewQuote(LocalDateTime orderDate, int customerId) {
 
 		//return type must be quote
 		
@@ -154,6 +158,40 @@ public class EmployeeOrderManagementImpl implements EmployeeOrderManagement {
 			closeConnection(con);
 
 		}
+	}
+	
+	public Products getProductByProductId(int productId)
+	{
+		Connection con=getConnection();
+		if(con!=null)
+		{
+			try(PreparedStatement ps=con.prepareStatement("select * from products where product_id=?"))
+			{
+				ps.setInt(1, productId);
+				ResultSet rs=ps.executeQuery();
+				
+				while(rs.next())
+				{
+					Products p=new Products();
+					return p;
+				}
+				
+			}
+			catch(SQLException e)
+			{
+				System.out.println(e);
+			}
+			finally
+			{
+				closeConnection(con);
+			}
+		}
+		else
+		{
+			System.out.println("Connection object is null");
+		}
+		return null;
+			
 	}
 	
 	public double calculateShippingCost(double totalOrderValue, List<Products> productList) {

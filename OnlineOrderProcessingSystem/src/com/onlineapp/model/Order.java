@@ -7,95 +7,98 @@ public class Order {
 
 	private int orderId;
 	private LocalDateTime orderDate;
-//	private Customer customerDetails;
-	private int customerId;
-	private List<Products> pendingProductList;
-	private List<Products> approvedProductList;
+	private Customer customerDetails;
+	private List<Products> productList;
 	private double totalOrderValue;
-//	private double shippingCost;
+//	private double shippingCost;    //we are calculating no need here
 	private String shippingAgency;
 	private Invoice invoice;
 
-	private enum Status {
+	private enum OrderStatus {
 		PENDING, APPROVED, COMPLETED, EXPIRED
 	}
 
+	private OrderStatus status;
+
 	public Order() {
 		super();
+	}
+
+	public Order(int orderId, LocalDateTime orderDate, Customer customerDetails, List<Products> productList,
+			double totalOrderValue, String shippingAgency, Invoice invoice, OrderStatus status) {
+		super();
+		this.orderId = orderId;
+		this.orderDate = orderDate;
+		this.customerDetails = customerDetails;
+		this.productList = productList;
+		this.totalOrderValue = totalOrderValue;
+//		this.shippingCost = shippingCost;
+		this.shippingAgency = shippingAgency;
+		this.invoice = invoice;
+		this.status = status;
 	}
 
 	public int getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
 	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(LocalDateTime orderDate) {
-		this.orderDate = orderDate;
+	public Customer getCustomer() {
+		return customerDetails;
 	}
 
-//	public Customer getCustomer() {
-//		return customerDetails;
-//	}
-//
-//
-//	public void setCustomer(Customer customer) {
-//		this.customerDetails = customer;
-//	}
+	public void setCustomer(Customer customer) {
+		this.customerDetails = customer;
+	}
+
+	public List<Products> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Products> productList) {
+		this.productList = productList;
+	}
 
 	public double getTotalOrderValue() {
 		return totalOrderValue;
-	}
-
-	public void setTotalOrderValue(double totalOrderValue) {
-		this.totalOrderValue = totalOrderValue;
-	}
-
-	public List<Products> getPendingProductList() {
-		return pendingProductList;
-	}
-
-	public void setPendingProductList(List<Products> pendingProductList) {
-		this.pendingProductList = pendingProductList;
-	}
-
-	public List<Products> getApprovedProductList() {
-		return approvedProductList;
-	}
-
-	public void setApprovedProductList(List<Products> approvedProductList) {
-		this.approvedProductList = approvedProductList;
 	}
 
 //	public double getShippingCost() {
 //		return shippingCost;
 //	}
 //
-//
-//	public void setShippingCost(double shippingCost) {
-//		this.shippingCost = shippingCost;
-//	}
-
 	public String getShippingAgency() {
 		return shippingAgency;
 	}
 
-	public void setShippingAgency(String shippingAgency) {
-		this.shippingAgency = shippingAgency;
+	public String getStatus() {
+		return this.status.name();
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public Customer getCustomerDetails() {
+		return customerDetails;
+	}
+
+	public void setCustomerDetails(Customer customerDetails) {
+		this.customerDetails = customerDetails;
+	}
+
+	public Invoice getInvoice() {
+		return invoice;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", customerId=" + customerId
-				+ ", pendingProductList=" + pendingProductList + ", approvedProductList=" + approvedProductList
-				+ ", totalOrderValue=" + totalOrderValue + ", shippingAgency=" + shippingAgency + ", invoice=" + invoice
-				+ "]";
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", customer=" + customerDetails
+				+ ", productList=" + productList + ", totalOrderValue=" + totalOrderValue + ", shippingAgency="
+				+ shippingAgency + "]";
 	}
 
 }

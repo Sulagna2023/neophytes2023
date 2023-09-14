@@ -1,20 +1,16 @@
 package com.onlineapp.model;
 
 public class Employee {
-	
+
 	private int employeeId;
 	private String userName;
 	private String passWord;
-	
-	public Employee(){
+
+	public Employee() {
 	}
 
 	public int getEmployeeId() {
 		return employeeId;
-	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
 	}
 
 	public String getUserName() {
@@ -37,7 +33,5 @@ public class Employee {
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", userName=" + userName + ", passWord=" + passWord + "]";
 	}
-	
-	
 
 }

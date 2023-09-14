@@ -22,10 +22,6 @@ public class Company {
 		return companyName;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
 	public String getCompanyAddress() {
 		return companyAddress;
 	}
@@ -44,10 +40,6 @@ public class Company {
 
 	public int getGstNumber() {
 		return gstNumber;
-	}
-
-	public void setGstNumber(int gstNumber) {
-		this.gstNumber = gstNumber;
 	}
 
 	@Override

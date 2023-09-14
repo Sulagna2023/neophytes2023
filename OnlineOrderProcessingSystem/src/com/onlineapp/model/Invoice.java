@@ -4,48 +4,55 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Invoice {
-	
+
 	private int invoiceId;
 	private LocalDateTime invoiceDate;
 	private Order orderDetails;
 	private Customer customerDetails;
 	private List<Products> productList;
-	private enum gstType{
-		INTER_STATE,
-		SAME_STATE
-	}
 	private double gstAmount;
 	private double totalInvoiceValue;
-	private enum Status{
-		PAID,
-		UNPAID
+
+	private enum Gst {
+		INTER_STATE, SAME_STATE
 	}
-	
-	public Invoice(){
+
+	private Gst gstType;
+
+	private enum PaymentStatus {
+		PAID, UNPAID
+	}
+
+	private PaymentStatus status;
+
+	public Invoice() {
+		super();
+	}
+
+	public Invoice(int invoiceId, LocalDateTime invoiceDate, Order orderDetails, Customer customerDetails,
+			List<Products> productList, Gst gstType, double gstAmount, double totalInvoiceValue, PaymentStatus status) {
+		super();
+		this.invoiceId = invoiceId;
+		this.invoiceDate = invoiceDate;
+		this.orderDetails = orderDetails;
+		this.customerDetails = customerDetails;
+		this.productList = productList;
+		this.gstType = gstType;
+		this.gstAmount = gstAmount;
+		this.totalInvoiceValue = totalInvoiceValue;
+		this.status = status;
 	}
 
 	public int getInvoiceId() {
 		return invoiceId;
 	}
 
-	public void setInvoiceId(int invoiceId) {
-		this.invoiceId = invoiceId;
-	}
-
 	public LocalDateTime getInvoiceDate() {
 		return invoiceDate;
 	}
 
-	public void setInvoiceDate(LocalDateTime invoiceDate) {
-		this.invoiceDate = invoiceDate;
-	}
-
 	public Order getOrderDetails() {
 		return orderDetails;
-	}
-
-	public void setOrderDetails(Order orderDetails) {
-		this.orderDetails = orderDetails;
 	}
 
 	public Customer getCustomerDetails() {
@@ -64,22 +71,25 @@ public class Invoice {
 		this.productList = productList;
 	}
 
-	public double getGstAmount() {
-		return gstAmount;
+	public String getGstType() {
+		return this.gstType.name();
 	}
 
-	public void setGstAmount(double gstAmount) {
-		this.gstAmount = gstAmount;
+	public double getGstAmount() {
+		return gstAmount;
 	}
 
 	public double getTotalInvoiceValue() {
 		return totalInvoiceValue;
 	}
 
-	public void setTotalInvoiceValue(double totalInvoiceValue) {
-		this.totalInvoiceValue = totalInvoiceValue;
+	public String getStatus() {
+		return this.status.name();
 	}
-	
+
+	public void setStatus(PaymentStatus status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
@@ -87,8 +97,5 @@ public class Invoice {
 				+ ", customerDetails=" + customerDetails + ", productList=" + productList + ", gstAmount=" + gstAmount
 				+ ", totalInvoiceValue=" + totalInvoiceValue + "]";
 	}
-	
-	
-	
 
 }

@@ -4,29 +4,33 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Quote {
-	
+
 	LocalDateTime orderDate;
-	Customer customer;
+	int customerId;
 	double shippingCost;
 	List<Products> productList;
 	double totalOrderValue;
-	
-	public Quote(){
+
+	private enum OrderStatus {
+		PENDING, APPROVED, COMPLETED, EXPIRED
 	}
 
-	
-	
-	public Quote(LocalDateTime orderDate, Customer customer, double shippingCost, List<Products> productList,
-			double totalOrderValue) {
+	private OrderStatus status;
+
+	public Quote() {
+		super();
+	}
+
+	public Quote(LocalDateTime orderDate, int customerId, double shippingCost, List<Products> productList,
+			double totalOrderValue, OrderStatus status) {
 		super();
 		this.orderDate = orderDate;
-		this.customer = customer;
+		this.customerId = customerId;
 		this.shippingCost = shippingCost;
 		this.productList = productList;
 		this.totalOrderValue = totalOrderValue;
+		this.status = status;
 	}
-
-
 
 	public LocalDateTime getOrderDate() {
 		return orderDate;
@@ -56,16 +60,18 @@ public class Quote {
 		return totalOrderValue;
 	}
 
-	public void setTotalOrderValue(double totalOrderValue) {
-		this.totalOrderValue = totalOrderValue;
+	public String getStatus() {
+		return this.status.name();
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		return "Quote [orderDate=" + orderDate + ", customer=" + customer + ", productList=" + productList + "]";
+		return "Quote [orderDate=" + orderDate + ", customerId=" + customerId + ", shippingCost=" + shippingCost
+				+ ", productList=" + productList + ", totalOrderValue=" + totalOrderValue + ", status=" + status + "]";
 	}
-	
-	
-	
 
 }

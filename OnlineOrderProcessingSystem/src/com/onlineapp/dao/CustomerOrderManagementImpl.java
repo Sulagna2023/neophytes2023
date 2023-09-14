@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.onlineapp.exception.CustomerNotFoundException;
 import com.onlineapp.interfaces.CustomerOrderManagement;
 import com.onlineapp.model.Customer;
 import com.onlineapp.model.Invoice;
@@ -44,7 +45,7 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 	}
 
 	@Override
-	public Customer customerLogin(int customerId, String password) {
+	public Customer customerLogin(int customerId, String password) throws CustomerNotFoundException {
 		Connection con = getConnection();
 		if (con != null) {
 			try (PreparedStatement ps = con.prepareStatement("select * from customer where customer_id=?,password=?")) {
@@ -62,11 +63,11 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 				closeConnection(con);
 			}
 		}
-		return null;
+		throw new CustomerNotFoundException("Incorrect Customer Id or password entered!");
 	}
 
 	@Override
-	public Customer customerLogin(String customerName, String password) {
+	public Customer customerLogin(String customerName, String password) throws CustomerNotFoundException {
 		Connection con = getConnection();
 		if (con != null) {
 			try (PreparedStatement ps = con
@@ -85,9 +86,9 @@ public class CustomerOrderManagementImpl implements CustomerOrderManagement {
 				closeConnection(con);
 			}
 		}
-		return null;
+		throw new CustomerNotFoundException("Invalid Customer Name or password entered!");
 	}
-
+	
 	@Override
 	public Invoice showInvoice(int invoiceId) {
 		Connection con = getConnection();
