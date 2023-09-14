@@ -18,11 +18,12 @@
 .emp-details{
     border: 1px solid #430C8B ;
     border-radius: 2px;
-    margin-left: 1.5%;
+    margin-left: 0.5%;
     margin-top: 2.9%;
-    width: 200px;
-    height: 50px;
+    width: 230px;
+    height: 60px;
     float: right;
+    padding: 1%;
 }
 
 .container {

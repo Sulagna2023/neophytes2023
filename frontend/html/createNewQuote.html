@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/createNewQuotes.css">
+</head>
+<body>
+  <script src="../js/script.js"></script>
+  <div class="container">
+    <div class="navbar">
+      <!-- NAVBAR -->
+      <ul>
+          <li><a href="employeeLogin.html">Employee Login</a></li>
+          <li><a href="customerLogin.html">Customer Login</a></li>
+      </ul>
+    </div>
+
+    <!--CUSTOMER DETAILS FORM-->
+    <div class=" main-body">
+       <form class="form left">
+            <div class="input-label">
+                <label>Customer ID/Name<sup style="color: red;">*</sup></label>
+                <input type="text">
+            </div>
+            <div class="input-label">
+                <label>Email<sup style="color: red;">*</sup></label>
+                <input type="email">
+            </div>
+            <div class="input-label">
+                <label>Phone Number<sup style="color: red;">*</sup></label>
+                <input type="number">
+            </div>
+            <div class="input-label">
+                <label>GST Number<sup style="color: red;">*</sup></label>
+                <input type="text">
+            </div>
+            <div class="input-label">
+                <label>Order Date<sup style="color: red;">*</sup></label>
+                <input type="date">
+            </div>
+       </form>
+       <form class="form right">
+            <div class="input-label">
+                <label>Shipping Address<sup style="color: red;">*</sup></label>
+                <input type="text">
+            </div>
+            <div class="input-label">
+                <label>City<sup style="color: red;">*</sup></label>
+                <input type="text">
+            </div>
+            <div class="input-label">
+                <label>Pin Code<sup style="color: red;">*</sup></label>
+                <input type="number">
+            </div>
+            <div class="input-label">
+                <label>Shipping cost (Rs.)<sup style="color: red;">*</sup></label>
+                <input type="number">
+            </div>
+            <div class="input-label">
+                <label>Total Order Value (Rs.)<sup style="color: red;">*</sup></label>
+                <input type="number">
+            </div>
+        </form>
+    </div>
+
+    <center>
+        <button class="button" onclick="quoteCreated()">
+            Create
+        </button>
+    </center>
+   
+        
+    </div>
+      <!--FOOTER-->
+      <div class="footer other-footer">
+        <p>All rights reserved &#169;</p>
+      </div>
+  </div>
+</body>
+</html>

@@ -19,22 +19,24 @@
           <li><a href="employeeLogin.html">Employee Login</a></li>
           <li><a href="customerLogin.html">Customer Login</a></li>
       </ul>
-  </div>
+    </div>
 
-  <div class="main-body">
-      <div class="upper">
-        <button type="button" class="upper-button">
-          <i class="fa-solid fa-circle-plus" style="color: #ffffff; margin-right: 10px;"></i>Create new quote
-       </button>
-       <button type="button" class="upper-button" onclick="redirectToImport()">
-        <i class="fa-solid fa-file-import" style="color: #ffffff;margin-right: 10px;"></i>Import quote
-       </button>
-       <div class="emp-details">
-           <p>Employee ID:
-           <br>
-           Last Logged In: </p>
-       </div>
-      </div>
+
+    <div class="main-body">
+      <!--HEADER-->
+        <div class="upper">
+          <button type="button" class="upper-button" onclick="redirectToCreateNewQuote()">
+            <i class="fa-solid fa-circle-plus" style="color: #ffffff; margin-right: 10px;"></i>Create new quote
+        </button>
+        <button type="button" class="upper-button" onclick="redirectToImport()">
+          <i class="fa-solid fa-file-import" style="color: #ffffff;margin-right: 10px;"></i>Import quote
+        </button>
+        <div class="emp-details">
+            <p>Employee ID: MKSM25TD
+            <br>
+            Last Logged In: 16:39:40 </p>
+        </div>
+        </div>
 
       <!--CARDS-->
       <!--CARD1-->
@@ -47,10 +49,10 @@
               <div class="card-body">
                 <h5 class="card-title">Status: Pending</h5>
                  <p class="card-text">
-                  Order ID: H88274<br>
-                  Customer Name: Rajdeep Joshi<br>
+                  Order ID: 29SKU7<br>
+                  Customer Name: John Doe<br>
                   Order Date: 28/05/2023<br>
-                  Order Value:<br>
+                  Order Value: Rs. 599.00<br>
                   Customer City: Mumbai<br>
                  </p>
               </div>
@@ -68,10 +70,10 @@
               <div class="card-body">
                 <h5 class="card-title">Status: Approved</h5>
                  <p class="card-text">
-                  Order ID: H88274<br>
-                  Customer Name: Rajdeep Joshi<br>
-                  Order Date: 28/05/2023<br>
-                  Order Value:<br>
+                  Order ID: 7ZFADJ<br>
+                  Customer Name: Alex Floyd<br>
+                  Order Date: 02/03/2023<br>
+                  Order Value: Rs. 639.00<br>
                   Customer City: Mumbai<br>
                  </p>
                  <button type="submit" onclick="redirectToInvoice()">Show Invoice</button>
@@ -90,27 +92,23 @@
               <div class="card-body">
                 <h5 class="card-title">Status: Approved</h5>
                  <p class="card-text">
-                  Order ID: H88274<br>
-                  Customer Name: Rajdeep Joshi<br>
-                  Order Date: 28/05/2023<br>
-                  Order Value:<br>
-                  Customer City: Mumbai<br>
+                  Order ID: 6BVGHL<br>
+                  Customer Name: Max Hood<br>
+                  Order Date: 13/06/2023<br>
+                  Order Value: Rs. 1999.99<br>
+                  Customer City: Banglore<br>
                  </p>
                  <button type="button" onclick="redirectToInvoice()">Show Invoice</button>
               </div>
             </div>
           </div>
         </div>
+    </div>
 
+    <!--FOOTER-->
+    <div class="other-footer footer">
+      <p>All rights reserved &#169;</p>
+    </div>
   </div>
-
-  <!--FOOTER-->
-  <div class="other-footer footer">
-    <p>All rights reserved &#169;</p>
-  </div>
-  </div>
-
-  
-
 </body>
 </html>

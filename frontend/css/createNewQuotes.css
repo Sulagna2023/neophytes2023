@@ -1,0 +1,36 @@
+
+.main-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.form {
+    text-align: left;
+}
+
+.left{
+    float: left;
+    width: 45%;
+    padding: 2%;
+    padding-top: 10%;
+}
+
+.right{
+    width: 45%;
+    float: right;
+    padding: 5%;
+    padding-top: 7.5%;
+}
+
+.input-label{
+    padding: 2%;
+    margin: 2%;
+}
+input{
+    float: right; 
+    margin-right: 3%; 
+    width: 250px;
+}
+

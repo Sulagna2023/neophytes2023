@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&dispoint');
+
 body{
   background: rgb(225,229,254);
   background: linear-gradient(90deg, rgba(225,229,254,1) 0%, rgba(92,205,183,1) 35%, rgba(157,241,103,1) 100%);
@@ -24,6 +26,14 @@ body{
   justify-content: space-between;
   /* background: rgba(0,0,0,0.30); */
 
+}
+
+input{
+  border-color: black 0.5px;
+    background-color: rgb(223, 221, 217);
+    width: 200px;
+    height: 30px;
+    border-radius: 2px;
 }
 
 .navbar ul{
