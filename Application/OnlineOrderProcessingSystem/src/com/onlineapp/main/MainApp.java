@@ -46,8 +46,7 @@ public class MainApp {
 						empId = scan.nextInt();
 						System.out.println("Enter password :");
 						pass = scan.next();
-//					char[] passwordArray = console.readPassword("Enter your password: ");
-//			        pass = new String(passwordArray);
+
 						Employee emp = b.employeeLogin(empId, pass);
 						if (emp != null) {
 							System.out.println("You are successfully logged in.\n");
@@ -67,16 +66,7 @@ public class MainApp {
 										int id = scan.nextInt();
 										DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 										LocalDate localDate = LocalDate.parse(str, formatter);
-//									LocalDate date=
-										// Quote q=b.createNewQuote(localDate,id);
-//									if(q!=null)
-//									{
-//										System.out.println("New Quote dated"+str+"for customer with customerId"+id+"created successfully!! ");
-//									}
-//									else
-//									{
-//										System.out.println("Failed to create new Quote!!");
-//									}
+
 										break;
 									case 2:
 										System.out.println("Enter the number of products you want to import");
@@ -141,7 +131,6 @@ public class MainApp {
 	}
 
 	private static void importProducts(Set<Products> set, int no) {
-		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
 		int id;
 		String name, category;
@@ -155,8 +144,6 @@ public class MainApp {
 			category = scan.next();
 			System.out.println("Enter Product Price of item " + i);
 			price = scan.nextDouble();
-			// Products p= new Products(id,name,price,category);
-			// set.add(p);
 		}
 		System.out.println("Import of " + set.size() + " products successfully!!");
 		System.out.println("Import of 0 products failed!!");
